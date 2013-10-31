@@ -1,0 +1,13 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item
+        android:id="@+id/CB"
+        android:title="@string/action_settings"></item>
+    <item
+        android:id="@+id/CS"
+        android:title="@string/listas"></item>
+    <item
+        android:id="@+id/ad"
+        android:title="@string/acerca"></item>
+
+</menu>

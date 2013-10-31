@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">MiMenu</string>
+    <string name="action_settings">Comonentes Básicas</string>
+    <string name="listas">Comonentes de selección</string>
+    <string name="acerca">Acerca de</string>
+    <string name="title_activity_componentes_basicas">ComponentesBasicas</string>
+    <string name="tradio">Ir a Botones Radio</string>
+    <string name="tcheck">Ir a Botones CheckBox</string>
+    <string name="title_activity_radio_button">RadioButton</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_radio">Radio</string>
+    <string name="title_activity_check">Check</string>
+    <string name="title_activity_componentes_seleccion">ComponentesSeleccion</string>
+    <string name="title_activity_listas">Listas</string>
+    <string name="title_activity_plista">Plista</string>
+    <string name="title_activity_spiner">Spiner</string>
+    <string name="title_activity_pspiner">Pspiner</string>
+    <string name="title_activity_acerca_de">AcercaDe</string>
+
+</resources>

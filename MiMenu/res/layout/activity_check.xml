@@ -1,0 +1,50 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".Check" 
+    android:orientation="vertical">
+
+    <TextView 
+        android:id="@+id/txtc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="¿Que entorno de desarrollo utilizas?"/>
+    <CheckBox
+        android:id="@+id/mono"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Monodevelop" />
+    <CheckBox
+        android:id="@+id/netbeans"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Netbeans" />
+    <CheckBox
+        android:id="@+id/eclipse"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Eclipse" />
+    <CheckBox
+        android:id="@+id/as"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Android Studio" />
+    
+    <Button 
+        android:id="@+id/bcheck"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ver"/>
+    
+     <TextView 
+        android:id="@+id/tc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
+
+</LinearLayout>
