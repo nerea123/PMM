@@ -16,7 +16,9 @@ public class Dibuja_Figura extends Activity {
 	String lado;
 	String figura;
 	String altura;
+	int color;
 	View pantalla; 
+	Paint pincel;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -26,6 +28,7 @@ public class Dibuja_Figura extends Activity {
 		lado=b.getString("lado");
 		figura=b.getString("figura");
 		altura=b.getString("alt");
+		color=b.getInt("Color");
 	}
 
 	@Override
@@ -50,8 +53,8 @@ public class Dibuja_Figura extends Activity {
 			return pantalla.getHeight();
 		}
 		public void onDraw(Canvas canvas){
-			Paint pincel=new Paint();
-			pincel.setColor(Color.RED);
+			pincel=new Paint();
+			setcolor();
 			pincel.setStrokeWidth(15);
 			pincel.setStyle(Style.FILL);
 			if(esCuadrado()){
@@ -121,6 +124,26 @@ public class Dibuja_Figura extends Activity {
 			return true;
 		else
 			return false;
+	}
+	
+	public void setcolor(){
+		
+		switch(color){
+		case 1:
+			pincel.setColor(Color.YELLOW);
+			break;
+		case 2:
+			pincel.setColor(Color.BLUE);
+			break;
+		case 3:
+			pincel.setColor(Color.RED);
+			break;
+		case 4:
+			pincel.setColor(Color.GREEN);
+			break;
+		default:
+			pincel.setColor(Color.BLACK);
+		}
 	}
 
 }

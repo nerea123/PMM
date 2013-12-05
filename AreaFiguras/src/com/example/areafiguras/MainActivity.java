@@ -10,6 +10,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -23,6 +24,7 @@ import android.widget.TextView;
 public class MainActivity extends Activity {
 
 	String figura;
+	int color;
 	
 	static class ViewHolder{
 		TextView figura;
@@ -51,12 +53,16 @@ public class MainActivity extends Activity {
 				figura=((Figuras)arg0.getAdapter().getItem(arg2)).getFigura();
 				if(figura.equals("Pintar")){
 					Intent i=new Intent(MainActivity.this,Pintar.class);
+					Bundle bundle=new Bundle();
+					bundle.putInt("Color", color);
+					i.putExtras(bundle);
 					startActivity(i);
 				}
 				else{
 					Intent intent=new Intent(MainActivity.this,Dibujo.class);
 					Bundle b=new Bundle();
 					b.putString("figura", figura);
+					b.putInt("Color", color);
 					intent.putExtras(b);
 					if(arg2>0){
 						startActivity(intent);
@@ -118,6 +124,29 @@ public class MainActivity extends Activity {
 		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
 	}
+	
+	public boolean onOptionsItemSelected(MenuItem item) {
+		switch (item.getItemId()) {
+		case R.id.amarillo:
+		color=1;
+		return true;
+		case R.id.azul:
+			System.out.println("holaaaa");
+				
+		color=2;
+		System.out.println(color+"holaaaa");
+		return true;
+		case R.id.rojo:
+		color=3;	
+		return true;
+		case R.id.verde:
+		color=4;	
+		return true;
+		default:
+		return super.onOptionsItemSelected(item);
+		}
+	}
+
 
 	
 }

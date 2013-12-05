@@ -20,6 +20,7 @@ public class Dibujo extends Activity {
 	TextView txt;
 	TextView txt2;
 	String figura;
+	int color;
 	EditText lado_radio;
 	EditText altura;
 	@Override
@@ -33,6 +34,7 @@ public class Dibujo extends Activity {
 		Button boton=(Button)findViewById(R.id.boton);
 		Bundle b=getIntent().getExtras();
 		figura=b.getString("figura");
+		color=b.getInt("Color");
 		
 		if(esCuadrado()){
 			txt.setText("Introduce el lado del cuadrado");
@@ -58,6 +60,7 @@ public class Dibujo extends Activity {
 					Bundle b=new Bundle();
 					b.putString("lado", lado);
 					b.putString("figura", figura);
+					b.putInt("Color", color);
 					Intent intent=new Intent(Dibujo.this,Dibuja_Figura.class);
 					intent.putExtras(b);
 					startActivity(intent);
@@ -69,6 +72,7 @@ public class Dibujo extends Activity {
 					b.putString("lado", lado);
 					b.putString("alt", alt);
 					b.putString("figura", figura);
+					b.putInt("Color", color);
 					Intent intent=new Intent(Dibujo.this,Dibuja_Figura.class);
 					intent.putExtras(b);
 					startActivity(intent);
@@ -78,6 +82,7 @@ public class Dibujo extends Activity {
 					Bundle b=new Bundle();
 					b.putString("lado", lado);
 					b.putString("figura", figura);
+					b.putInt("Color", color);
 					Intent intent=new Intent(Dibujo.this,Dibuja_Figura.class);
 					intent.putExtras(b);
 					startActivity(intent);

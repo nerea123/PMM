@@ -12,14 +12,18 @@ import android.view.MotionEvent;
 import android.view.View;
 
 public class Pintar extends Activity {
+	int color;
+	Paint pincel;
 	
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(new LibreP(this));
+		
 	}
 	
 	class LibreP extends View{
 
+	
 		String accion="accion";
 		float x=50;
 		float y=50;
@@ -32,10 +36,11 @@ public class Pintar extends Activity {
 		}
 		
 		public void onDraw(Canvas canvas){
-			Paint pincel=new Paint();
+			pincel=new Paint();
 			pincel.setStyle(Style.STROKE);
 			pincel.setStrokeWidth(6);
-			pincel.setColor(Color.GREEN);
+			
+			setcolor();
 			
 			if(accion=="down"){
 				path.moveTo(x, y);
@@ -65,6 +70,29 @@ public class Pintar extends Activity {
 			
 			return true;
 			
+		}
+		
+		public void setcolor(){
+			
+			Bundle b=getIntent().getExtras();
+			color=b.getInt("Color");
+			
+			switch(color){
+			case 1:
+				pincel.setColor(Color.YELLOW);
+				break;
+			case 2:
+				pincel.setColor(Color.BLUE);
+				break;
+			case 3:
+				pincel.setColor(Color.RED);
+				break;
+			case 4:
+				pincel.setColor(Color.GREEN);
+				break;
+			default:
+				pincel.setColor(Color.BLACK);
+			}
 		}
 	}
 

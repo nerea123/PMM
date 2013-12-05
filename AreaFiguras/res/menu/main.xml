@@ -1,9 +1,23 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android" >
 
     <item
-        android:id="@+id/action_settings"
+        android:id="@+id/setcolor"
         android:orderInCategory="100"
         android:showAsAction="never"
-        android:title="@string/action_settings"/>
+        android:title="@string/color">
+        
+        <menu>
+			<item android:id="@+id/rojo"
+			android:title="Rojo" />
+			<item android:id="@+id/amarillo"
+			android:title="Amarillo" />
+			<item android:id="@+id/azul"
+			android:title="Azul" />
+			<item android:id="@+id/verde"
+			android:title="Verde" />
+			</menu>
+        
+        
+        </item>
 
 </menu>

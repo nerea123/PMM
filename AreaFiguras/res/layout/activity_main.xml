@@ -8,6 +8,11 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".MainActivity" 
     android:orientation="vertical">
+    
+    <TextView 
+        android:text="Puedes elegir el color en el menú!!"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
 
     <Spinner
         android:id="@+id/spin"
