@@ -12,6 +12,7 @@ import android.graphics.Path.FillType;
 import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.shapes.OvalShape;
 import android.view.Menu;
+import android.view.MotionEvent;
 import android.view.View;
 
 public class MainActivity extends Activity {
@@ -25,6 +26,10 @@ public class MainActivity extends Activity {
 	
 	public class CasaView extends View{
 
+		String accion="accion";
+		float x=50;
+		float y=50;
+		Path path= new Path();
 		public CasaView(Context context) {
 			super(context);
 			// TODO Auto-generated constructor stub
@@ -91,6 +96,39 @@ public class MainActivity extends Activity {
 			//canvas.drawLine(275, 150,275,275, pincel);
 			pincel.setStrokeWidth(2);
 			//canvas.drawLine(170, 300, 275, 275, pincel);
+			
+			pincel.setStyle(Style.STROKE);
+			pincel.setStrokeWidth(6);
+			pincel.setColor(Color.GREEN);
+			
+			if(accion=="down"){
+				path.moveTo(x, y);
+			}
+			
+			if(accion=="move"){
+				path.lineTo(x, y);
+			}
+			
+			canvas.drawPath(path, pincel);
+			
+		}
+		
+		public boolean onTouchEvent(MotionEvent e){
+			
+			x=e.getX();
+			y=e.getY();
+			
+			if(e.getAction() == MotionEvent.ACTION_DOWN){
+				accion="down";
+			}
+			
+			if(e.getAction() == MotionEvent.ACTION_MOVE){
+				accion="move";
+			}
+			
+			invalidate();
+			
+			return true;
 			
 		}
 	}
