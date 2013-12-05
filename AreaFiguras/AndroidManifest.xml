@@ -30,6 +30,10 @@
             android:name="com.example.areafiguras.Dibuja_Figura"
             android:label="@string/title_activity_dibuja__figura" >
         </activity>
+        <activity 
+            android:label="@string/app_name2" 
+            android:name=".Pintar"></activity>
+        	
     </application>
 
 </manifest>

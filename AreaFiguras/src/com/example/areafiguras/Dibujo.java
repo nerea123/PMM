@@ -101,6 +101,8 @@ public class Dibujo extends Activity {
 		else
 			return false;
 	}
+	
+	
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {

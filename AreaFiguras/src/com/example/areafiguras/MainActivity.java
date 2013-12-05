@@ -22,6 +22,8 @@ import android.widget.TextView;
 
 public class MainActivity extends Activity {
 
+	String figura;
+	
 	static class ViewHolder{
 		TextView figura;
 	}
@@ -29,7 +31,8 @@ public class MainActivity extends Activity {
 	Figuras[] datos= new Figuras[]{new Figuras("Selecciona una figura"),
 			new Figuras("Cuadrado"),
 			new Figuras("Rectangulo"),
-			new Figuras("Circulo")}; 
+			new Figuras("Circulo"),
+			new Figuras("Pintar")}; 
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -44,16 +47,29 @@ public class MainActivity extends Activity {
 			@Override
 			public void onItemSelected(AdapterView<?> arg0, View arg1, int arg2,
 					long arg3) {
+			
+				figura=((Figuras)arg0.getAdapter().getItem(arg2)).getFigura();
+				if(figura.equals("Pintar")){
+					Intent i=new Intent(MainActivity.this,Pintar.class);
+					startActivity(i);
+				}
+				else{
+					Intent intent=new Intent(MainActivity.this,Dibujo.class);
+					Bundle b=new Bundle();
+					b.putString("figura", figura);
+					intent.putExtras(b);
+					if(arg2>0){
+						startActivity(intent);
+						}
+				}
 				
-				String figura=((Figuras)arg0.getAdapter().getItem(arg2)).getFigura();
-				Intent intent=new Intent(MainActivity.this,Dibujo.class);
-				Bundle b=new Bundle();
-				b.putString("figura", figura);
-				intent.putExtras(b);
-				if(arg2>0){
-					startActivity(intent);
-					}
-				
+			}
+			
+			public boolean esPintar(){
+				if(figura.equalsIgnoreCase("pintar"))
+					return true;
+				else
+					return false;
 			}
 
 			@Override
@@ -103,4 +119,5 @@ public class MainActivity extends Activity {
 		return true;
 	}
 
+	
 }
