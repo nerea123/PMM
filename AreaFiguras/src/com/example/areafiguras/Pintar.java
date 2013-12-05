@@ -24,7 +24,7 @@ public class Pintar extends Activity {
 	class LibreP extends View{
 
 	
-		String accion="accion";
+		boolean accion=false;
 		float x=50;
 		float y=50;
 		Path path= new Path();
@@ -42,11 +42,11 @@ public class Pintar extends Activity {
 			
 			setcolor();
 			
-			if(accion=="down"){
+			if(!accion){
 				path.moveTo(x, y);
 			}
 			
-			if(accion=="move"){
+			if(accion){
 				path.lineTo(x, y);
 			}
 			
@@ -59,11 +59,11 @@ public class Pintar extends Activity {
 			y=e.getY();
 			
 			if(e.getAction() == MotionEvent.ACTION_DOWN){
-				accion="down";
+				accion=false;
 			}
 			
 			if(e.getAction() == MotionEvent.ACTION_MOVE){
-				accion="move";
+				accion=true;
 			}
 			
 			invalidate();
