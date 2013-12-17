@@ -1,0 +1,64 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".Resultado" >
+
+        <ImageView 
+            android:id="@+id/rfoto"
+            android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:src="@drawable/planeta"/>
+
+        
+  
+			   <TextView 
+			        android:id="@+id/rZona"
+					android:text="Zona :"
+					android:paddingTop="50px"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_toRightOf="@id/rfoto"
+					/>
+	   
+			      <TextView 
+			        android:id="@+id/rTarifa"
+					android:text="Tarifa :"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_below="@id/rZona"
+					android:layout_alignLeft="@id/rZona"/>
+	      
+			        <TextView 
+			        android:id="@+id/rPeso"
+					android:text="Peso :"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_below="@id/rTarifa"
+					android:layout_alignLeft="@id/rTarifa"/>
+         
+			         <TextView 
+			        android:id="@+id/rDecoracion"
+					android:text="Decoración :"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_below="@id/rPeso"
+					android:layout_alignLeft="@id/rPeso"/>
+            
+			         <TextView 
+			        android:id="@+id/rFinal"
+					android:text="Coste final :"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_below="@id/rDecoracion"
+					android:layout_alignLeft="@id/rDecoracion"/>
+	         
+			         
+         
+           
+
+</RelativeLayout>
