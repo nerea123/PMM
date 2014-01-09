@@ -148,7 +148,7 @@ c2.setOnCheckedChangeListener(new OnCheckedChangeListener() {
 				
 				else if(zona.equalsIgnoreCase("zona b"))
 					precio=20;
-				else if(zona.equalsIgnoreCase("zona b"))
+				else if(zona.equalsIgnoreCase("zona c"))
 					precio=10;
 				
 				peso=String.valueOf(text.getText());

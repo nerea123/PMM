@@ -20,6 +20,7 @@
 			        android:id="@+id/rZona"
 					android:text="Zona :"
 					android:paddingTop="50px"
+					android:paddingLeft="20px"
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
 					android:layout_toRightOf="@id/rfoto"
@@ -28,6 +29,7 @@
 			      <TextView 
 			        android:id="@+id/rTarifa"
 					android:text="Tarifa :"
+					android:paddingLeft="20dp"
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
 					android:layout_below="@id/rZona"
@@ -36,6 +38,7 @@
 			        <TextView 
 			        android:id="@+id/rPeso"
 					android:text="Peso :"
+					android:paddingLeft="20dp"
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
 					android:layout_below="@id/rTarifa"
@@ -44,6 +47,7 @@
 			         <TextView 
 			        android:id="@+id/rDecoracion"
 					android:text="Decoración :"
+					android:paddingLeft="20dp"
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
 					android:layout_below="@id/rPeso"
@@ -52,10 +56,18 @@
 			         <TextView 
 			        android:id="@+id/rFinal"
 					android:text="Coste final :"
+					android:paddingLeft="20dp"
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
 					android:layout_below="@id/rDecoracion"
 					android:layout_alignLeft="@id/rDecoracion"/>
+			         
+			         <Button 
+			             android:id="@+id/cambio"
+			             android:text="Cambio"
+			             android:layout_width="wrap_content"
+						 android:layout_height="wrap_content"
+						 android:layout_centerInParent="true"/>
 	         
 			         
          
