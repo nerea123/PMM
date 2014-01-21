@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Centros-Personal-Profesores</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Centros-Personal-Profesores</string>
+    <string name="title_activity_ver_centros">VerCentros</string>
+    <string name="title_activity_ver_personal">VerPersonal</string>
+    <string name="title_activity_ver_profesores">VerProfesores</string>
+
+</resources>
