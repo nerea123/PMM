@@ -1,0 +1,74 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".InsertaProfesores" >
+
+    <TextView
+        android:id="@+id/label" 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/hello_world" />
+    
+     <TextView
+        android:id="@+id/labelCod" 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Selecciona el Codigo Centro" 
+        android:layout_below="@+id/label"/>
+     
+     <Spinner 
+        android:id="@+id/spinInsProf" 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/labelCod"/>
+     
+     
+	
+	<TextView
+        android:id="@+id/labelApe" 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Introduce los apellidos" 
+        android:layout_below="@+id/spinInsProf"
+        android:layout_alignLeft="@+id/labelCod"
+        android:layout_marginTop="40dp"/>
+	
+	<EditText
+	    android:id="@+id/insApe" 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/labelCod"
+        android:layout_toRightOf="@+id/labelApe" 
+        android:layout_marginTop="40dp"/>
+	
+	<TextView
+        android:id="@+id/labelEspecialidad" 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Introduce la especialidad" 
+        android:layout_below="@+id/labelApe"
+        android:layout_alignLeft="@+id/labelApe"
+        android:layout_marginTop="40dp"/>
+	
+	<EditText
+	    android:id="@+id/insEspe" 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/labelApe"
+        android:layout_toRightOf="@+id/labelEspecialidad"
+        android:layout_marginTop="40dp" />
+	
+	<Button 
+	     android:id="@+id/bins" 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Insertar" 
+        android:layout_below="@+id/labelEspecialidad"
+        android:layout_alignLeft="@+id/labelEspecialidad"
+        android:layout_marginTop="40dp"/>
+</RelativeLayout>

@@ -1,0 +1,57 @@
+package com.example.centros_personal_profesores;
+
+import android.os.Bundle;
+import android.app.Activity;
+import android.content.Intent;
+import android.view.Menu;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+
+public class AccionesProfesores extends Activity {
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_acciones_profesores);
+		final ListView opciones=(ListView)findViewById(R.id.listaProfesores);
+		
+		final String[] datos =
+				new String[]{"Insertar nuevo profesor","Modificar profesor","Eliminar provesor"};
+		ArrayAdapter<String> adaptador =new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, datos);
+		opciones.setAdapter(adaptador);
+		
+		opciones.setOnItemClickListener(new OnItemClickListener() {
+
+			@Override
+			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
+					long arg3) {
+				
+				switch (arg2){
+				
+				case 0:
+					Intent i = new Intent(AccionesProfesores.this,InsertaProfesores.class);
+					startActivity(i);
+					break;
+				case 1:
+					break;
+				case 2:
+					break;
+				
+				}
+				
+			}
+		});
+				
+	}
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu; this adds items to the action bar if it is present.
+		getMenuInflater().inflate(R.menu.acciones_profesores, menu);
+		return true;
+	}
+
+}

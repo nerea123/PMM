@@ -1,0 +1,113 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".AccionesProfesores" >
+
+  
+     <TextView
+        android:id="@+id/labeleditTipoTCentro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tipo del centro"
+       
+        android:layout_marginTop="40dp" />
+    
+    <EditText 
+        android:id="@+id/editTipoCentro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/labeleditTipoTCentro"
+        android:layout_marginTop="40dp"
+        android:width="30dp"/>
+    
+    
+     <TextView
+        android:id="@+id/labeleditNombreCentro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nombre del centro"
+        android:layout_below="@+id/labeleditTipoTCentro"
+        android:layout_marginTop="40dp"
+         />
+    
+    <EditText 
+        android:id="@+id/editNombreCentro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/labeleditTipoTCentro"
+        android:layout_toRightOf="@+id/labeleditNombreCentro"
+        android:layout_marginTop="40dp"
+        android:width="200dp"/>
+    
+    <TextView
+        android:id="@+id/labeleditDirCentro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Direccion del centro"
+        android:layout_below="@+id/labeleditNombreCentro"
+        android:layout_marginTop="40dp" />
+    
+    <EditText 
+        android:id="@+id/editDirCentro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/labeleditNombreCentro"
+        android:layout_toRightOf="@+id/labeleditDirCentro"
+        android:layout_marginTop="40dp"
+        android:width="200dp"/>
+    
+    <TextView
+        android:id="@+id/labeleditTelfCentro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Telefono del centro"
+        android:layout_below="@+id/labeleditDirCentro"
+        android:layout_marginTop="40dp" />
+    
+    <EditText 
+        android:id="@+id/editTelfCentro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/labeleditDirCentro"
+        android:layout_toRightOf="@+id/labeleditTelfCentro"
+        android:layout_marginTop="40dp"
+        android:width="200dp"/>
+    
+    <TextView
+        android:id="@+id/labeleditPlazasCentro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Plazas del centro"
+        android:layout_below="@+id/labeleditTelfCentro"
+        android:layout_marginTop="40dp" />
+    
+    <EditText 
+        android:id="@+id/editPlazasCentro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/labeleditTelfCentro"
+        android:layout_toRightOf="@+id/labeleditPlazasCentro"
+        android:layout_marginTop="40dp"
+        android:width="200dp"/>
+    
+    <Button 
+	     android:id="@+id/binseditCentro" 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Editar" 
+        android:layout_below="@+id/labeleditPlazasCentro"
+        android:layout_alignLeft="@+id/labeleditPlazasCentro"
+        android:layout_marginTop="40dp"/>
+    
+    
+  
+    
+   
+    
+
+</RelativeLayout>

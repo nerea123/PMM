@@ -34,6 +34,26 @@
             android:name="com.example.centros_personal_profesores.VerProfesores"
             android:label="@string/title_activity_ver_profesores" >
         </activity>
+        <activity
+            android:name="com.example.centros_personal_profesores.AccionesProfesores"
+            android:label="@string/title_activity_acciones_profesores" >
+        </activity>
+        <activity
+            android:name="com.example.centros_personal_profesores.InsertaProfesores"
+            android:label="@string/title_activity_inserta_profesores" >
+        </activity>
+        <activity
+            android:name="com.example.centros_personal_profesores.InsertarCentros"
+            android:label="@string/title_activity_insertar_centros" >
+        </activity>
+        <activity
+            android:name="com.example.centros_personal_profesores.AccionesCentro"
+            android:label="@string/title_activity_acciones_centro" >
+        </activity>
+        <activity
+            android:name="com.example.centros_personal_profesores.EditCentros"
+            android:label="@string/title_activity_edit_centros" >
+        </activity>
     </application>
 
 </manifest>

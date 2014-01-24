@@ -2,17 +2,25 @@ package com.example.centros_personal_profesores;
 
 import android.os.Bundle;
 import android.app.Activity;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.AdapterView.OnItemSelectedListener;
 
 public class VerCentros extends Activity {
+	
+	Spinner spi;
+	AdaptadorCentro adap;
 	
 	 static class ViewHolder{
          TextView nombre;
@@ -36,9 +44,51 @@ public class VerCentros extends Activity {
         db = cliBDh.getReadableDatabase();
         leerRegistros();
         
-        final Spinner spi=(Spinner)findViewById(R.id.spin);
-        AdaptadorCentro adap=new AdaptadorCentro(this);
+        spi=(Spinner)findViewById(R.id.spin);
+        
+        adap=new AdaptadorCentro(this);
+        adap.notifyDataSetChanged();
         spi.setAdapter(adap);
+        
+       
+        
+        spi.setOnItemSelectedListener(new OnItemSelectedListener() {
+    	public void onItemSelected(AdapterView<?> arg0, View arg1,
+				int arg2, long arg3) {
+			
+			if(arg2 != 0){
+			
+				Intent i=new Intent(VerCentros.this,AccionesCentro.class);
+				Bundle b=new Bundle();
+				String cod=String.valueOf(datos[arg2].getCod());
+				String tipo=datos[arg2].getTipo();
+				String nombre=datos[arg2].getNombre();;
+				String dir=datos[arg2].getDireccion();
+				String telf=datos[arg2].getTelefono();
+				String plazas=String.valueOf(datos[arg2].getPlazas());
+				
+				b.putString("cod",cod);
+				b.putString("tipo", tipo);
+				b.putString("nombre", nombre);
+				b.putString("dir", dir);
+				b.putString("telf", telf);
+				b.putString("pazas", plazas);
+				
+				i.putExtras(b);
+				
+				startActivity(i);
+			}
+			
+			adap.notifyDataSetChanged();
+			
+		}
+		public void onNothingSelected(AdapterView<?> arg0) {
+			// TODO Auto-generated method stub
+			
+		}
+	});
+
+		
 	}
 
 	@Override
@@ -52,8 +102,9 @@ public class VerCentros extends Activity {
         String[] campos = new String[] {"cod_centro","tipo_centro","nombre","direccion", "telefono","num_plazas"};
 
         Cursor c = db.query("centros", campos, null, null, null, null, null);
-        datos=new Centros[c.getCount()];
-        int i=0;
+        datos=new Centros[c.getCount()+1];
+        datos[0]= new Centros(0,"","Ver nombre","Ver dir","",0);
+        int i=1;
         if (c.moveToFirst()) {
                 
                 do {
@@ -88,7 +139,7 @@ public class VerCentros extends Activity {
          public View getView(int posicion,View convertView,ViewGroup parent){
                  View item=convertView;
                  ViewHolder holder;
-                 if(item==null){
+                 
                          LayoutInflater inflater=context.getLayoutInflater();
                          item=inflater.inflate(R.layout.spinercentro,null);
                          
@@ -103,9 +154,7 @@ public class VerCentros extends Activity {
                          
                          item.setTag(holder);
                          
-                 }
-                 else
-                         holder=(ViewHolder)item.getTag();
+                
                  
                  holder.cod.setText("Cod: "+String.valueOf(datos[posicion].getCod()));
                  holder.tipo.setText("Tipo: "+datos[posicion].getTipo());

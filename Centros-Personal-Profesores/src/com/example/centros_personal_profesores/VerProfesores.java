@@ -5,12 +5,15 @@ import com.example.centros_personal_profesores.VerPersonal.ViewHolder;
 
 import android.os.Bundle;
 import android.app.Activity;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -39,6 +42,40 @@ public class VerProfesores extends Activity {
         final Spinner spi=(Spinner)findViewById(R.id.spinerprofesores);
         AdaptadorPersonal adap=new AdaptadorPersonal(this);
         spi.setAdapter(adap);
+        
+        spi.setOnItemSelectedListener(new OnItemSelectedListener() {
+
+			@Override
+			public void onItemSelected(AdapterView<?> arg0, View arg1,
+					int arg2, long arg3) {
+				
+				if(arg2 != 0){
+				
+					Intent i=new Intent(VerProfesores.this,AccionesProfesores.class);
+					Bundle b=new Bundle();
+					int cod=datos[arg2].getCod();
+					int dni=datos[arg2].getDni();
+					String apellidos=datos[arg2].getApellidos();;
+					String especialidad=datos[arg2].getEspecialidad();
+					
+					b.putInt("cod",cod);
+					b.putInt("dni", dni);
+					b.putString(apellidos, apellidos);
+					b.putString(especialidad, especialidad);
+					
+					i.putExtras(b);
+					
+					startActivity(i);
+				}
+				
+			}
+
+			@Override
+			public void onNothingSelected(AdapterView<?> arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
 	}
 
 	@Override
@@ -52,8 +89,9 @@ public class VerProfesores extends Activity {
         String[] campos = new String[] {"cod_centro","dni","apellidos","especialidad"};
 
         Cursor c = db.query("profesores", campos, null, null, null, null, null);
-        datos=new Profesores[c.getCount()];
-        int i=0;
+        datos=new Profesores[c.getCount()+1];
+        datos[0]= new Profesores(0,0,"Ver apellidos","Ver especialidad");
+        int i=1;
         if (c.moveToFirst()) {
                 
                 do {
@@ -68,6 +106,7 @@ public class VerProfesores extends Activity {
                         i++;
                         
                 } while (c.moveToNext());
+                db.close();
         }
 }
 	
@@ -88,7 +127,7 @@ public class VerProfesores extends Activity {
          public View getView(int posicion,View convertView,ViewGroup parent){
                  View item=convertView;
                  ViewHolder holder;
-                 if(item==null){
+                 
                          LayoutInflater inflater=context.getLayoutInflater();
                          item=inflater.inflate(R.layout.spinprofesores,null);
                          
@@ -102,10 +141,7 @@ public class VerProfesores extends Activity {
                          
                          
                          item.setTag(holder);
-                         
-                 }
-                 else
-                         holder=(ViewHolder)item.getTag();
+                     
                  
                  holder.cod.setText("Cod: "+String.valueOf(datos[posicion].getCod()));
                  holder.dni.setText("DNI: "+String.valueOf(datos[posicion].getDni()));

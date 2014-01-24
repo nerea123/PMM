@@ -6,14 +6,24 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".VerCentros" 
-    android:background="@drawable/images">
+    tools:context=".AccionesProfesores" >
 
-    <Spinner
-        android:id="@+id/spin"
+    <TextView
+        android:id="@+id/texto3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        /> 
-        
+        android:text="@string/hello_world" />
     
+    <ListView
+        android:id="@+id/listaCentros"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/texto"
+        android:layout_marginTop="40dp"
+      />
+    
+   
+    
+
 </RelativeLayout>
+

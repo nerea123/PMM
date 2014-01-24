@@ -31,7 +31,7 @@ public class MainActivity extends Activity {
 				
 				creaBD();
 			}
-		});
+		}); 
 		
 		centros.setOnClickListener(new OnClickListener() {
 			

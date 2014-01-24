@@ -7,5 +7,10 @@
     <string name="title_activity_ver_centros">VerCentros</string>
     <string name="title_activity_ver_personal">VerPersonal</string>
     <string name="title_activity_ver_profesores">VerProfesores</string>
+    <string name="title_activity_acciones_profesores">AccionesProfesores</string>
+    <string name="title_activity_inserta_profesores">InsertaProfesores</string>
+    <string name="title_activity_insertar_centros">InsertarCentros</string>
+    <string name="title_activity_acciones_centro">AccionesCentro</string>
+    <string name="title_activity_edit_centros">EditCentros</string>
 
 </resources>
