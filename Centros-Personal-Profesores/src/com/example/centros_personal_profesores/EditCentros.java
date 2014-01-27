@@ -49,6 +49,8 @@ public class EditCentros extends Activity {
 										+ "num_plazas="+Integer.parseInt(plazas.getText().toString())+" "
 												+ "WHERE cod_centro="+Integer.parseInt(b.getString("cod")));
 				
+				db.close();
+				
 				
 			}
 		});

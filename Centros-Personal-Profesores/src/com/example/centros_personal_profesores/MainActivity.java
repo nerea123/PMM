@@ -133,6 +133,7 @@ public class MainActivity extends Activity {
 		db.execSQL("INSERT INTO profesores VALUES (15,8660990, 'De Lucas Fdez, M.Angel',  'MATEMÁTICAS')");
 		db.execSQL("INSERT INTO profesores VALUES (22,7650000, 'Ruiz Lafuente, Manuel',  'MATEMÁTICAS')");
 		db.execSQL("INSERT INTO profesores VALUES (45,43526789, 'Serrano Laguía, María','INFORMÁTICA');");
+		db.close();
 				
 	}
 	

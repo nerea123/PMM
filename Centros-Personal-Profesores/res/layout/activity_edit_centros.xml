@@ -23,7 +23,9 @@
         android:layout_height="wrap_content"
         android:layout_toRightOf="@+id/labeleditTipoTCentro"
         android:layout_marginTop="40dp"
-        android:width="30dp"/>
+        android:width="30dp"
+        android:inputType="text"
+        android:maxLength="1"/>
     
     
      <TextView
@@ -42,7 +44,9 @@
         android:layout_below="@+id/labeleditTipoTCentro"
         android:layout_toRightOf="@+id/labeleditNombreCentro"
         android:layout_marginTop="40dp"
-        android:width="200dp"/>
+        android:width="200dp"
+        android:inputType="text"
+        />
     
     <TextView
         android:id="@+id/labeleditDirCentro"
@@ -59,7 +63,8 @@
         android:layout_below="@+id/labeleditNombreCentro"
         android:layout_toRightOf="@+id/labeleditDirCentro"
         android:layout_marginTop="40dp"
-        android:width="200dp"/>
+        android:width="200dp"
+        />
     
     <TextView
         android:id="@+id/labeleditTelfCentro"
@@ -76,7 +81,9 @@
         android:layout_below="@+id/labeleditDirCentro"
         android:layout_toRightOf="@+id/labeleditTelfCentro"
         android:layout_marginTop="40dp"
-        android:width="200dp"/>
+        android:width="200dp"
+        android:inputType="text"
+        android:maxLength="9"/>
     
     <TextView
         android:id="@+id/labeleditPlazasCentro"
@@ -93,7 +100,9 @@
         android:layout_below="@+id/labeleditTelfCentro"
         android:layout_toRightOf="@+id/labeleditPlazasCentro"
         android:layout_marginTop="40dp"
-        android:width="200dp"/>
+        android:width="200dp"
+        android:inputType="numberSigned"
+        android:maxLength="3"/>
     
     <Button 
 	     android:id="@+id/binseditCentro" 

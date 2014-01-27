@@ -14,57 +14,74 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-public class InsertaProfesores extends Activity {
+public class EditProfesores extends Activity {
 
-	SQLiteDatabase db;
-	SQLiteDatabase dbr;
-	String datos[];
 	Spinner spi;
     TextView ape;
     TextView espe;
+    SQLiteDatabase db;
+	SQLiteDatabase dbr;
+	String datos[];
+	Bundle bun;
+	String centro;
+	int centroSelec=0;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_inserta_profesores);
+		setContentView(R.layout.activity_edit_profesores);
+		bun=getIntent().getExtras();
+		
 		ClientesSQLiteHelper cliBDh = new ClientesSQLiteHelper(this, "CENTROS-PERSONAL-PROFESORES", null, 1);
         db = cliBDh.getWritableDatabase();
         dbr = cliBDh.getReadableDatabase();
+        
+    	bun=getIntent().getExtras();
         getCod();
-        spi=(Spinner)findViewById(R.id.spinInsProf);
-        ape=(EditText)findViewById(R.id.insApe);
-        espe=(EditText)findViewById(R.id.insEspe);
-        Button b=(Button)findViewById(R.id.bins);
+        spi=(Spinner)findViewById(R.id.spinEditProf);
+        ape=(EditText)findViewById(R.id.editApeProf);
+        espe=(EditText)findViewById(R.id.EditEspeProf);
+        ponDatos();
+        System.out.println(ape.getText());
+        Button b=(Button)findViewById(R.id.bEditProf);
         ArrayAdapter<String> adaptador =new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item, datos);
         adaptador.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spi.setAdapter(adaptador);
-       
-        b.setOnClickListener(new OnClickListener() {
+        System.out.println(centroSelec);
+        spi.setSelection(centroSelec);
+        
+ b.setOnClickListener(new OnClickListener() {
 			
 			@Override
 			public void onClick(View arg0) {
 				
-				 isertar((String) spi.getSelectedItem().toString(),getDni((String)ape.getText().toString())
-			        		,(String)ape.getText().toString()
-			        		,(String)espe.getText().toString());
-				 
-				 Intent i=new Intent(InsertaProfesores.this,MainActivity.class);
+				db.execSQL("UPDATE profesores SET cod_centro="+Integer.parseInt(spi.getSelectedItem().toString())+","
+						
+								+ "apellidos='"+ape.getText().toString()+"',"
+										+ "especialidad='"+espe.getText().toString()+"'"
+												+ "WHERE dni="+Integer.parseInt(bun.getString("dni"))+";");
+				
+				db.close();
+				
+				 Intent i=new Intent(EditProfesores.this,MainActivity.class);
 				 startActivity(i);
+				
 			}
 		});
         
-       
 	}
+
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.inserta_profesores, menu);
+		getMenuInflater().inflate(R.menu.edit_profesores, menu);
 		return true;
 	}
 	
 	public void getCod(){
 		 String[] campos = new String[] {"cod_centro"};
 
+		 	String centro=bun.getString("codP");
 	        Cursor c = db.query("centros", campos, null, null, null, null, null);
 	        datos=new String [c.getCount()];
 	        int i=0;
@@ -72,37 +89,19 @@ public class InsertaProfesores extends Activity {
 	                
 	                do {
 	                        datos[i]=String.valueOf(c.getInt(0));
-	                        i++;
-	                        System.out.println(c.getInt(0));
-	                } while (c.moveToNext());
-	                
-	        }
-	}
-	
-	public String getDni(String ape){
-		 String[] campos = new String[] {"dni"};
-		 String[]args=new String[]{ape};
-		 String dni = null;
-	        Cursor c = db.query("personal", campos, "apellidos=?", args, null, null, null);
-	        
-	        int i=0;
-	        if (c.moveToFirst()) {
-	                
-	                do {
-	                        dni=String.valueOf(c.getInt(0));
+	                        //si el cod que pasamos es igual al codigo que insertamos en el espiner guardamos su indice para inicializar el spiner con el
+	                        if(datos[i].equalsIgnoreCase(centro))
+	                        	centroSelec=i;
 	                        
-	                        System.out.println(c.getInt(0));
+	                        i++;
+	                       
 	                } while (c.moveToNext());
-	               
+	                
 	        }
-	        return dni;
 	}
-	
-	public void isertar(String cod,String dni,String ape, String espe){
-		
-		
-		db.execSQL("insert into profesores values( "+Integer.parseInt(cod)+", "+Integer.parseInt(dni)+", '"+ape+"', '"+espe+"' )");
-		db.close();
+		private void ponDatos(){
+		ape.setText(bun.getString("apeP"));
+		espe.setText(bun.getString("espeP"));
 	}
 
 }

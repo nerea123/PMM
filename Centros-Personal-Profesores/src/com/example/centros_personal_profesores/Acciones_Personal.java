@@ -9,12 +9,12 @@ import android.database.sqlite.SQLiteDatabase;
 import android.view.Menu;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
+import android.widget.AdapterView.OnItemClickListener;
 
-public class AccionesProfesores extends Activity {
+public class Acciones_Personal extends Activity {
 
 	String ape;
 	String dni;
@@ -25,16 +25,14 @@ public class AccionesProfesores extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_acciones_profesores);
-		final ListView opciones=(ListView)findViewById(R.id.listaProfesores);
+		setContentView(R.layout.activity_acciones__personal);
+		final ListView opciones=(ListView)findViewById(R.id.listaPersonal);
 		bun=getIntent().getExtras();
-		ape=bun.getString("apeP");
+		ape=bun.getString("ape");
 		dni=bun.getString("dni");
-		final String[] datos =
-				new String[]{"Insertar nuevo profesor","Modificar profesor","Eliminar provesor"};
+		final String[] datos =new String[]{"Insertar nuevo personal","Modificar personal","Eliminar personal"};
 		ArrayAdapter<String> adaptador =new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, datos);
 		opciones.setAdapter(adaptador);
-		
 		opciones.setOnItemClickListener(new OnItemClickListener() {
 
 			@Override
@@ -44,12 +42,12 @@ public class AccionesProfesores extends Activity {
 				switch (arg2){
 				
 				case 0:
-					Intent i = new Intent(AccionesProfesores.this,InsertaProfesores.class);
+					Intent i = new Intent(Acciones_Personal.this,InsertarPersonal.class);
 					startActivity(i);
 					break;
 				case 1:
-					
-					Intent in = new Intent(AccionesProfesores.this,EditProfesores.class);
+					bun=getIntent().getExtras();
+					Intent in = new Intent(Acciones_Personal.this,EditProfesores.class);
 					in.putExtras(bun);
 					startActivity(in);
 					break;
@@ -61,20 +59,18 @@ public class AccionesProfesores extends Activity {
 				
 			}
 		});
-				
 	}
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.acciones_profesores, menu);
+		getMenuInflater().inflate(R.menu.acciones__personal, menu);
 		return true;
 	}
-	
 	private void creaDialogo(){
 		AlertDialog.Builder dialog = new AlertDialog.Builder(this);
 		 
-		dialog.setMessage("¿Eliminar profesor "+ape+" con dni "+dni+" ?");
+		dialog.setMessage("¿Eliminar personalr "+ape+" con dni "+dni+" ?");
 		dialog.setCancelable(false);
 		dialog.setPositiveButton("Si", new DialogInterface.OnClickListener() {
 		 
@@ -82,10 +78,10 @@ public class AccionesProfesores extends Activity {
 		  public void onClick(DialogInterface dialog, int which) {
 		   
 			  db=cliBDh.getWritableDatabase();
-			  db.execSQL("DELETE FROM profesores WHERE dni="+dni);
+			  db.execSQL("DELETE FROM personal WHERE dni="+dni);
 			  db.close();
 			  muestraToast();
-			  Intent i = new Intent(AccionesProfesores.this,MainActivity.class);
+			  Intent i = new Intent(Acciones_Personal.this,MainActivity.class);
 			  startActivity(i);
 		  }
 		});
@@ -100,7 +96,7 @@ public class AccionesProfesores extends Activity {
 	}
 
 	private void muestraToast(){
-		Toast.makeText(this, "Profesor "+ape+" eliminado", Toast.LENGTH_SHORT).show();;
+		Toast.makeText(this, "Personal "+ape+" eliminado", Toast.LENGTH_SHORT).show();;
 		
 	}
 

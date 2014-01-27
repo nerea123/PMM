@@ -4,15 +4,18 @@ package com.example.centros_personal_profesores;
 
 import android.os.Bundle;
 import android.app.Activity;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.AdapterView.OnItemSelectedListener;
 
 public class VerPersonal extends Activity {
 	 static class ViewHolder{
@@ -37,8 +40,44 @@ public class VerPersonal extends Activity {
         leerRegistros();
         
         final Spinner spi=(Spinner)findViewById(R.id.spinPersonal);
-        AdaptadorPersonal adap=new AdaptadorPersonal(this);
+        final AdaptadorPersonal adap=new AdaptadorPersonal(this);
         spi.setAdapter(adap);
+        
+        spi.setOnItemSelectedListener(new OnItemSelectedListener() {
+        	public void onItemSelected(AdapterView<?> arg0, View arg1,
+    				int arg2, long arg3) {
+    			
+    			if(arg2 != 0){
+    			
+    				Intent i=new Intent(VerPersonal.this,Acciones_Personal.class);
+    				Bundle b=new Bundle();
+    				String cod=String.valueOf(datos[arg2].getCod());
+    				String dni=String.valueOf(datos[arg2].getDni());
+    				String ape=datos[arg2].getApellido();
+    				String funcion=datos[arg2].getFuncion();
+    				String salario=String.valueOf(datos[arg2].getSalario());
+    				
+    				
+    				b.putString("cod",cod);
+    				b.putString("dni", dni);
+    				b.putString("ape", ape);
+    				b.putString("salario", salario);
+    				b.putString("funcion", funcion);
+    				
+    				
+    				i.putExtras(b);
+    				
+    				startActivity(i);
+    			}
+    			
+    			adap.notifyDataSetChanged();
+    			
+    		}
+    		public void onNothingSelected(AdapterView<?> arg0) {
+    			// TODO Auto-generated method stub
+    			
+    		}
+    	});
 	}
 
 	@Override
@@ -52,8 +91,9 @@ public class VerPersonal extends Activity {
         String[] campos = new String[] {"cod_centro","dni","apellidos","funcion", "salario"};
 
         Cursor c = db.query("personal", campos, null, null, null, null, null);
-        datos=new Personal[c.getCount()];
-        int i=0;
+        datos=new Personal[c.getCount()+1];
+        datos[0]= new Personal(0,0,"Ver nombre","Ver funcion",(float)0);
+        int i=1;
         if (c.moveToFirst()) {
                 
                 do {
@@ -62,7 +102,6 @@ public class VerPersonal extends Activity {
                         String ape = c.getString(2);
                         String fun=c.getString(3);
                         Float salario = c.getFloat(4);
-                       
                         
                         datos[i]=new Personal(cod,dni,ape,fun,salario);
                         i++;

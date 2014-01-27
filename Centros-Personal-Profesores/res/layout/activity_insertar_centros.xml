@@ -13,16 +13,17 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Código del centro"
-        android:layout_below="@+id/texto2"
+        
         />
     
     <EditText 
         android:id="@+id/insCodCentro"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/texto2"
         android:layout_toRightOf="@+id/labelCodCentro"
         android:width="200dp"
+        android:inputType="number"
+        android:maxLength="4"
         />
     
      <TextView
@@ -31,7 +32,8 @@
         android:layout_height="wrap_content"
         android:text="Tipo del centro"
         android:layout_below="@+id/labelCodCentro"
-        android:layout_marginTop="40dp" />
+        android:layout_marginTop="40dp"
+         />
     
     <EditText 
         android:id="@+id/insTipoCentro"
@@ -40,7 +42,9 @@
         android:layout_below="@+id/labelCodCentro"
         android:layout_toRightOf="@+id/labelTipoTCentro"
         android:layout_marginTop="40dp"
-        android:width="30dp"/>
+        android:width="30dp"
+        android:inputType="text"
+        android:maxLength="1"/>
     
     
      <TextView
@@ -59,7 +63,9 @@
         android:layout_below="@+id/labelTipoTCentro"
         android:layout_toRightOf="@+id/labelNombreCentro"
         android:layout_marginTop="40dp"
-        android:width="200dp"/>
+        android:width="200dp"
+        android:inputType="text"
+        />
     
     <TextView
         android:id="@+id/labelDirCentro"
@@ -76,7 +82,9 @@
         android:layout_below="@+id/labelNombreCentro"
         android:layout_toRightOf="@+id/labelDirCentro"
         android:layout_marginTop="40dp"
-        android:width="200dp"/>
+        android:width="200dp"
+        android:inputType="text"
+        android:maxLength="40"/>
     
     <TextView
         android:id="@+id/labelTelfCentro"
@@ -93,7 +101,9 @@
         android:layout_below="@+id/labelDirCentro"
         android:layout_toRightOf="@+id/labelTelfCentro"
         android:layout_marginTop="40dp"
-        android:width="200dp"/>
+        android:width="200dp"
+        android:inputType="text"
+        android:maxLength="9"/>
     
     <TextView
         android:id="@+id/labelPlazasCentro"
@@ -110,7 +120,9 @@
         android:layout_below="@+id/labelTelfCentro"
         android:layout_toRightOf="@+id/labelPlazasCentro"
         android:layout_marginTop="40dp"
-        android:width="200dp"/>
+        android:width="200dp"
+        android:inputType="number"
+        android:maxLength="3"/>
     
     <Button 
 	     android:id="@+id/binsCentro" 

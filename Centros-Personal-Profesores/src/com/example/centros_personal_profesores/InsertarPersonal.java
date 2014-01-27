@@ -14,52 +14,59 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-public class InsertaProfesores extends Activity {
+public class InsertarPersonal extends Activity {
 
-	SQLiteDatabase db;
-	SQLiteDatabase dbr;
-	String datos[];
+	TextView dni;
+	TextView ape;
+	TextView salario;
+	TextView funcion;
 	Spinner spi;
-    TextView ape;
-    TextView espe;
+	SQLiteDatabase db;
+	String datos[];
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_inserta_profesores);
+		setContentView(R.layout.activity_insertar_personal);
+		
 		ClientesSQLiteHelper cliBDh = new ClientesSQLiteHelper(this, "CENTROS-PERSONAL-PROFESORES", null, 1);
         db = cliBDh.getWritableDatabase();
-        dbr = cliBDh.getReadableDatabase();
+		dni=(EditText)findViewById(R.id.instDNIPer);
+        ape=(EditText)findViewById(R.id.insApePer);
+        salario=(EditText)findViewById(R.id.insSalarioPer);
+        funcion=(EditText)findViewById(R.id.insFuncionPer);
+        spi=(Spinner)findViewById(R.id.spicondPer);
         getCod();
-        spi=(Spinner)findViewById(R.id.spinInsProf);
-        ape=(EditText)findViewById(R.id.insApe);
-        espe=(EditText)findViewById(R.id.insEspe);
-        Button b=(Button)findViewById(R.id.bins);
         ArrayAdapter<String> adaptador =new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item, datos);
         adaptador.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spi.setAdapter(adaptador);
-       
+        
+        Button b=(Button)findViewById(R.id.binsPer);
+        
+
         b.setOnClickListener(new OnClickListener() {
 			
-			@Override
-			public void onClick(View arg0) {
-				
-				 isertar((String) spi.getSelectedItem().toString(),getDni((String)ape.getText().toString())
-			        		,(String)ape.getText().toString()
-			        		,(String)espe.getText().toString());
-				 
-				 Intent i=new Intent(InsertaProfesores.this,MainActivity.class);
-				 startActivity(i);
-			}
-		});
-        
-       
+    			@Override
+    			public void onClick(View arg0) {
+    				
+    				 isertar((String)spi.getSelectedItem().toString(),(String) dni.getText().toString()
+    						 ,(String)ape.getText().toString()
+    			        		,(String)funcion.getText().toString()
+    			        		,(String)salario.getText().toString());
+    				 Intent i=new Intent(InsertarPersonal.this,MainActivity.class);
+    				 db.close();
+    				 startActivity(i);
+    			}
+    		});
 	}
+
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.inserta_profesores, menu);
+		getMenuInflater().inflate(R.menu.insertar_personal, menu);
 		return true;
+		
+		
 	}
 	
 	public void getCod(){
@@ -72,37 +79,19 @@ public class InsertaProfesores extends Activity {
 	                
 	                do {
 	                        datos[i]=String.valueOf(c.getInt(0));
+	                        	                        
 	                        i++;
-	                        System.out.println(c.getInt(0));
+	                       
 	                } while (c.moveToNext());
 	                
 	        }
 	}
 	
-	public String getDni(String ape){
-		 String[] campos = new String[] {"dni"};
-		 String[]args=new String[]{ape};
-		 String dni = null;
-	        Cursor c = db.query("personal", campos, "apellidos=?", args, null, null, null);
-	        
-	        int i=0;
-	        if (c.moveToFirst()) {
-	                
-	                do {
-	                        dni=String.valueOf(c.getInt(0));
-	                        
-	                        System.out.println(c.getInt(0));
-	                } while (c.moveToNext());
-	               
-	        }
-	        return dni;
-	}
-	
-	public void isertar(String cod,String dni,String ape, String espe){
+public void isertar(String cod,String dni,String ape,String funcion,String salario){
 		
 		
-		db.execSQL("insert into profesores values( "+Integer.parseInt(cod)+", "+Integer.parseInt(dni)+", '"+ape+"', '"+espe+"' )");
-		db.close();
+		db.execSQL("insert into personal values( "+Integer.parseInt(cod)+","+Integer.parseInt(dni)+", '"+ape+"', '"+funcion+"',"+Float.parseFloat(salario)+" )");
+		
 	}
 
 }

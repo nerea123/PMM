@@ -1,0 +1,107 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".InsertarPersonal" >
+
+    <TextView
+        android:id="@+id/labelinscodPer" 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Selecciona el Codigo Centro" 
+        />
+     
+     <Spinner 
+        android:id="@+id/spicondPer" 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/labelDNIPer"/>
+    
+     <TextView
+        android:id="@+id/labelDNIPer" 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Introduce el dni" 
+        android:layout_below="@+id/labelinscodPer"
+        android:layout_marginTop="40dp"/>
+     
+     <EditText 
+        android:id="@+id/instDNIPer" 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/labelDNIPer"
+        android:inputType="number"
+        android:layout_marginTop="40dp"/>
+     
+     
+	
+	<TextView
+        android:id="@+id/labelinsApePerPer" 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Introduce el nombre" 
+        android:layout_below="@+id/instDNIPer"
+        android:layout_alignLeft="@+id/labelDNIPer"
+        android:layout_marginTop="40dp"/>
+	
+	<EditText
+	    android:id="@+id/insApePer" 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/labelDNIPer"
+        android:layout_toRightOf="@+id/labelinsApePerPer" 
+        android:layout_marginTop="40dp"
+        android:inputType="text"/>
+	
+	<TextView
+        android:id="@+id/labelinsFuncionPer" 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Introduce la funcion" 
+        android:layout_below="@+id/labelinsApePerPer"
+        android:layout_alignLeft="@+id/labelinsApePerPer"
+        android:layout_marginTop="40dp"
+        />
+	
+	<EditText
+	    android:id="@+id/insFuncionPer" 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/labelinsApePerPer"
+        android:layout_toRightOf="@+id/labelinsFuncionPer"
+        android:layout_marginTop="40dp" 
+        android:inputType="text"/>
+	
+	<TextView
+        android:id="@+id/labelinsSalarioPer" 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Introduce el salario" 
+        android:layout_below="@+id/labelinsFuncionPer"
+        android:layout_alignLeft="@+id/labelinsFuncionPer"
+        android:layout_marginTop="40dp"
+        />
+	
+	<EditText
+	    android:id="@+id/insSalarioPer" 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/labelinsFuncionPer"
+        android:layout_toRightOf="@+id/labelinsSalarioPer"
+        android:layout_marginTop="40dp" 
+        android:inputType="text"/>
+	
+	<Button 
+	     android:id="@+id/binsPer" 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Insertar" 
+        android:layout_below="@+id/labelinsFuncionPer"
+        android:layout_alignLeft="@+id/labelinsFuncionPer"
+        android:layout_marginTop="40dp"/>
+
+</RelativeLayout>

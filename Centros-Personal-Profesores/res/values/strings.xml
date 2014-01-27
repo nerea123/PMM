@@ -12,5 +12,8 @@
     <string name="title_activity_insertar_centros">InsertarCentros</string>
     <string name="title_activity_acciones_centro">AccionesCentro</string>
     <string name="title_activity_edit_centros">EditCentros</string>
+    <string name="title_activity_edit_profesores">EditProfesores</string>
+    <string name="title_activity_acciones__personal">Acciones_Personal</string>
+    <string name="title_activity_insertar_personal">InsertarPersonal</string>
 
 </resources>

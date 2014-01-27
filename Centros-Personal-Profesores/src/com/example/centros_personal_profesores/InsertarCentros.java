@@ -45,7 +45,7 @@ public class InsertarCentros extends Activity {
     						 ,(String)tipo.getText().toString()
     			        		,(String)nom.getText().toString()
     			        		,(String)dir.getText().toString(),(String)tel.getText().toString(),(String)plazas.getText().toString());
-    				 Intent i=new Intent(InsertarCentros.this,VerCentros.class);
+    				 Intent i=new Intent(InsertarCentros.this,MainActivity.class);
     				 startActivity(i);
     			}
     		});

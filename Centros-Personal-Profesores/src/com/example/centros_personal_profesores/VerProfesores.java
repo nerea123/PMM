@@ -54,14 +54,16 @@ public class VerProfesores extends Activity {
 					Intent i=new Intent(VerProfesores.this,AccionesProfesores.class);
 					Bundle b=new Bundle();
 					int cod=datos[arg2].getCod();
-					int dni=datos[arg2].getDni();
+					String dni=String.valueOf(datos[arg2].getDni());
 					String apellidos=datos[arg2].getApellidos();;
 					String especialidad=datos[arg2].getEspecialidad();
 					
-					b.putInt("cod",cod);
-					b.putInt("dni", dni);
-					b.putString(apellidos, apellidos);
-					b.putString(especialidad, especialidad);
+					System.out.println(cod);
+					System.out.println(apellidos);
+					b.putString("codP",String.valueOf(cod));
+					b.putString("dni", dni);
+					b.putString("apeP", apellidos);
+					b.putString("espeP", especialidad);
 					
 					i.putExtras(b);
 					
