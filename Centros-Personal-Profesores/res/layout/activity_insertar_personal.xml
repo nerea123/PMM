@@ -35,7 +35,8 @@
         android:layout_height="wrap_content"
         android:layout_toRightOf="@+id/labelDNIPer"
         android:inputType="number"
-        android:layout_marginTop="40dp"/>
+        android:layout_marginTop="40dp"
+        android:width="200dp"/>
      
      
 	
@@ -55,7 +56,8 @@
         android:layout_below="@+id/labelDNIPer"
         android:layout_toRightOf="@+id/labelinsApePerPer" 
         android:layout_marginTop="40dp"
-        android:inputType="text"/>
+        android:inputType="text"
+        android:width="200dp"/>
 	
 	<TextView
         android:id="@+id/labelinsFuncionPer" 
@@ -74,7 +76,8 @@
         android:layout_below="@+id/labelinsApePerPer"
         android:layout_toRightOf="@+id/labelinsFuncionPer"
         android:layout_marginTop="40dp" 
-        android:inputType="text"/>
+        android:inputType="text"
+        android:width="200dp"/>
 	
 	<TextView
         android:id="@+id/labelinsSalarioPer" 
@@ -93,15 +96,16 @@
         android:layout_below="@+id/labelinsFuncionPer"
         android:layout_toRightOf="@+id/labelinsSalarioPer"
         android:layout_marginTop="40dp" 
-        android:inputType="text"/>
+        android:inputType="text"
+        android:width="200dp"/>
 	
 	<Button 
 	     android:id="@+id/binsPer" 
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Insertar" 
-        android:layout_below="@+id/labelinsFuncionPer"
-        android:layout_alignLeft="@+id/labelinsFuncionPer"
+        android:layout_below="@+id/labelinsSalarioPer"
+        android:layout_alignLeft="@+id/labelinsSalarioPer"
         android:layout_marginTop="40dp"/>
 
 </RelativeLayout>

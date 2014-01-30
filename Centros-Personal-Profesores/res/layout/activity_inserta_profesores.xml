@@ -45,6 +45,7 @@
         android:layout_below="@+id/labelCod"
         android:layout_toRightOf="@+id/labelApe" 
         android:layout_marginTop="40dp"
+        android:width="200dp"
         android:inputType="text"/>
 	
 	<TextView
@@ -64,7 +65,8 @@
         android:layout_below="@+id/labelApe"
         android:layout_toRightOf="@+id/labelEspecialidad"
         android:layout_marginTop="40dp" 
-        android:inputType="text"/>
+        android:inputType="text"
+        android:width="200dp"/>
 	
 	<Button 
 	     android:id="@+id/bins" 
