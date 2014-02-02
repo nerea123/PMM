@@ -23,6 +23,7 @@ public class MainActivity extends Activity {
 		Button centros =(Button)findViewById(R.id.centros);
 		Button personal =(Button)findViewById(R.id.personal);
 		Button profesores =(Button)findViewById(R.id.profesores);
+		Button estadisticas =(Button)findViewById(R.id.estadisticas);
 
 		crear.setOnClickListener(new OnClickListener() {
 			
@@ -61,6 +62,16 @@ public class MainActivity extends Activity {
 			public void onClick(View v) {
 				
 				Intent i=new Intent(MainActivity.this,VerProfesores.class);
+				startActivity(i);
+				
+			}
+		});
+		
+		estadisticas.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				Intent i=new Intent(MainActivity.this,Estadisticas.class);
 				startActivity(i);
 				
 			}

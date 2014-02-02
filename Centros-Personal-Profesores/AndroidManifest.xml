@@ -66,6 +66,22 @@
             android:name="com.example.centros_personal_profesores.InsertarPersonal"
             android:label="@string/title_activity_insertar_personal" >
         </activity>
+        <activity
+            android:name="com.example.centros_personal_profesores.Estadisticas"
+            android:label="@string/title_activity_estadisticas" >
+        </activity>
+        <activity
+            android:name="com.example.centros_personal_profesores.MaxSalarios"
+            android:label="@string/title_activity_max_salarios" >
+        </activity>
+        <activity
+            android:name="com.example.centros_personal_profesores.MinSalarios"
+            android:label="@string/title_activity_min_salarios" >
+        </activity>
+        <activity
+            android:name="com.example.centros_personal_profesores.MaxSalGrupos"
+            android:label="@string/title_activity_max_sal_grupos" >
+        </activity>
     </application>
 
 </manifest>

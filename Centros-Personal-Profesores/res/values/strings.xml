@@ -15,5 +15,9 @@
     <string name="title_activity_edit_profesores">EditProfesores</string>
     <string name="title_activity_acciones__personal">Acciones_Personal</string>
     <string name="title_activity_insertar_personal">InsertarPersonal</string>
+    <string name="title_activity_estadisticas">Estadisticas</string>
+    <string name="title_activity_max_salarios">MaxSalarios</string>
+    <string name="title_activity_min_salarios">MinSalarios</string>
+    <string name="title_activity_max_sal_grupos">MaxSalGrupos</string>
 
 </resources>
