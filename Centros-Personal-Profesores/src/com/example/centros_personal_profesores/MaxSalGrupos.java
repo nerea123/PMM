@@ -11,7 +11,7 @@ import android.widget.Spinner;
 
 public class MaxSalGrupos extends Activity {
 
-	Spinner max;
+	ListView max;
 	SQLiteDatabase db;
 	String datosmax[];
 	@Override
@@ -19,13 +19,12 @@ public class MaxSalGrupos extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_max_sal_grupos);
 		
-		max=(Spinner)findViewById(R.id.spinmax);
+		max=(ListView)findViewById(R.id.listmax);
 		ClientesSQLiteHelper sqlite=new ClientesSQLiteHelper(this, "CENTROS-PERSONAL-PROFESORES", null, 1);
 		db=sqlite.getReadableDatabase();
 		getMaxSalario();
 		
-		ArrayAdapter<String> adaptador =new ArrayAdapter<String>(this,android.R.layout.simple_dropdown_item_1line, datosmax);
-		adaptador.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+		ArrayAdapter<String> adaptador =new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, datosmax);
 		
 		
 		max.setAdapter(adaptador);

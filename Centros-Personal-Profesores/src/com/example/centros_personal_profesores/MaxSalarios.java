@@ -37,12 +37,12 @@ public class MaxSalarios extends Activity {
 	}
 
 	private void getMaxSalario(){
-		Cursor cur=db.query( "personal", new String[]{"MAX(salario)"}, null, null, null, null,null);
-		cur.moveToFirst();
-		Float salario=cur.getFloat(0);
-		String[] args=new String[]{String.valueOf(salario)};
-		String[] campos=new String[]{"apellidos","salario"};
-		Cursor c =db.query("personal",campos,"salario=?",args,null,null,null);
+//		Cursor cur=db.query( "personal", new String[]{"MAX(salario)"}, null, null, null, null,null);
+//		cur.moveToFirst();
+//		Float salario=cur.getFloat(0);
+//		String[] args=new String[]{String.valueOf(salario)};
+//		String[] campos=new String[]{"apellidos","salario"};
+		Cursor c =db.rawQuery("select apellidos, salario from personal where salario in (select MAX(salario) from personal)", null);
 		datosmax=new String[c.getCount()];
 		int i=0;
 		if(c.moveToFirst()){

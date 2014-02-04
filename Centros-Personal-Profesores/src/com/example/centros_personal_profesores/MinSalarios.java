@@ -35,12 +35,12 @@ public class MinSalarios extends Activity {
 	}
 	
 	private void getMinSalario(){
-		Cursor cur=db.query( "personal", new String[]{"MIN(salario)"}, null, null, null, null,null);
-		cur.moveToFirst();
-		Float salario=cur.getFloat(0);
-		String[] args=new String[]{String.valueOf(salario)};
-		String[] campos=new String[]{"apellidos","salario"};
-		Cursor c =db.query("personal",campos,"salario=?",args,null,null,null);
+//		Cursor cur=db.query( "personal", new String[]{"MIN(salario)"}, null, null, null, null,null);
+//		cur.moveToFirst();
+//		Float salario=cur.getFloat(0);
+//		String[] args=new String[]{String.valueOf(salario)};
+//		String[] campos=new String[]{"apellidos","salario"};
+		Cursor c =db.rawQuery("select apellidos, salario from personal where salario in (select MIN(salario) from personal)", null);
 		datosmin=new String[c.getCount()];
 		int i=0;
 		if(c.moveToFirst()){
