@@ -68,6 +68,7 @@ public class VerProfesores extends Activity {
 					i.putExtras(b);
 					
 					startActivity(i);
+					finish();
 				}
 				
 			}

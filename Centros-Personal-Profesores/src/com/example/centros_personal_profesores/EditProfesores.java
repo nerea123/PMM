@@ -63,8 +63,7 @@ public class EditProfesores extends Activity {
 				
 				db.close();
 				
-				 Intent i=new Intent(EditProfesores.this,MainActivity.class);
-				 startActivity(i);
+				finish();
 				
 			}
 		});

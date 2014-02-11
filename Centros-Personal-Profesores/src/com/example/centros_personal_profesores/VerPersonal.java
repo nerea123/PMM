@@ -68,6 +68,7 @@ public class VerPersonal extends Activity {
     				i.putExtras(b);
     				
     				startActivity(i);
+    				finish();
     			}
     			
     			adap.notifyDataSetChanged();

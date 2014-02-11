@@ -44,15 +44,18 @@ public class AccionesCentro extends Activity {
 				case 0:
 					Intent i = new Intent(AccionesCentro.this,InsertarCentros.class);
 					startActivity(i);
+					finish();
 					break;
 				case 1:
 					Intent in = new Intent(AccionesCentro.this,EditCentros.class);
 					Bundle b=getIntent().getExtras();
 					in.putExtras(b);
 					startActivity(in);
+					finish();
 					break;
 				case 2:
 					creaDialogo();
+					
 					break;
 				
 				}
@@ -82,8 +85,8 @@ public class AccionesCentro extends Activity {
 			  db.execSQL("DELETE FROM centros WHERE cod_centro="+cod);
 			  db.close();
 			  muestraToast();
-			  Intent i = new Intent(AccionesCentro.this,MainActivity.class);
-			  startActivity(i);
+			 
+			  finish();
 		  }
 		});
 		dialog.setNegativeButton("No", new DialogInterface.OnClickListener() {

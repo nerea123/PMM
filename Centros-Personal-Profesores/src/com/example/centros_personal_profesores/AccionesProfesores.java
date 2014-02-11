@@ -46,15 +46,18 @@ public class AccionesProfesores extends Activity {
 				case 0:
 					Intent i = new Intent(AccionesProfesores.this,InsertaProfesores.class);
 					startActivity(i);
+					finish();
 					break;
 				case 1:
 					
 					Intent in = new Intent(AccionesProfesores.this,EditProfesores.class);
 					in.putExtras(bun);
 					startActivity(in);
+					finish();
 					break;
 				case 2:
 					creaDialogo();
+					
 					break;
 				
 				}
@@ -85,8 +88,8 @@ public class AccionesProfesores extends Activity {
 			  db.execSQL("DELETE FROM profesores WHERE dni="+dni);
 			  db.close();
 			  muestraToast();
-			  Intent i = new Intent(AccionesProfesores.this,MainActivity.class);
-			  startActivity(i);
+			 
+			  finish();
 		  }
 		});
 		dialog.setNegativeButton("No", new DialogInterface.OnClickListener() {

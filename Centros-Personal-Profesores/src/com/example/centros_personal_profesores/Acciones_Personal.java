@@ -44,12 +44,14 @@ public class Acciones_Personal extends Activity {
 				case 0:
 					Intent i = new Intent(Acciones_Personal.this,InsertarPersonal.class);
 					startActivity(i);
+					finish();
 					break;
 				case 1:
 					bun=getIntent().getExtras();
 					Intent in = new Intent(Acciones_Personal.this,EditProfesores.class);
 					in.putExtras(bun);
 					startActivity(in);
+					finish();
 					break;
 				case 2:
 					creaDialogo();
@@ -81,8 +83,8 @@ public class Acciones_Personal extends Activity {
 			  db.execSQL("DELETE FROM personal WHERE dni="+dni);
 			  db.close();
 			  muestraToast();
-			  Intent i = new Intent(Acciones_Personal.this,MainActivity.class);
-			  startActivity(i);
+			 
+			  finish();
 		  }
 		});
 		dialog.setNegativeButton("No", new DialogInterface.OnClickListener() {

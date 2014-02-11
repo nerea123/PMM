@@ -77,6 +77,7 @@ public class VerCentros extends Activity {
 				i.putExtras(b);
 				
 				startActivity(i);
+				finish();
 			}
 			
 			adap.notifyDataSetChanged();

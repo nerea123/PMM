@@ -50,6 +50,7 @@ public class EditCentros extends Activity {
 												+ "WHERE cod_centro="+Integer.parseInt(b.getString("cod")));
 				
 				db.close();
+				finish();
 				
 				
 			}
